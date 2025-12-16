@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Scanner to Text PDF</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Tesseract OCR -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <h1>📖 Book Scanner → Text PDF</h1>
+  <input
+  type="file"
+  id="imageInput"
+  accept="image/*"
+  capture="environment"
+  multiple
+>
+
+  <button onclick="scanImages()">Scan Pages</button>
+
+  <h2>✏️ Editable Extracted Text</h2>
+  <textarea id="textOutput" placeholder="Scanned text will appear here..."></textarea>
+
+  <button onclick="generatePDF()">📄 Download Text PDF</button>
+
+  <p id="status"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
