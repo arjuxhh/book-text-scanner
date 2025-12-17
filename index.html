@@ -12,25 +12,35 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
+  <div class="container">
+      <h1>📖 Book Scanner → Text PDF</h1>
 
-  <h1>📖 Book Scanner → Text PDF</h1>
-  <input
-  type="file"
-  id="imageInput"
-  accept="image/*"
-  capture="environment"
-  multiple
->
+      <!-- Custom File Upload -->
+      <label class="custom-file-upload">
+          Select Images / Scan
+          <input type="file" id="imageInput" accept="image/*" capture="environment" multiple>
+      </label>
 
-  <button onclick="scanImages()">Scan Pages</button>
+      <button id="scanBtn" onclick="scanImages()">🔍 Scan Pages</button>
 
-  <h2>✏️ Editable Extracted Text</h2>
-  <textarea id="textOutput" placeholder="Scanned text will appear here..."></textarea>
+      <h2>✏️ Editable Extracted Text</h2>
+      <textarea id="textOutput" placeholder="Scanned text will appear here..."></textarea>
+      <h2>📐 PDF Margin Options (in mm)</h2>
+<label>Top: <input type="number" id="marginTop" value="10"></label><br>
+<label>Bottom: <input type="number" id="marginBottom" value="10"></label><br>
+<label>Left: <input type="number" id="marginLeft" value="10"></label><br>
+<label>Right: <input type="number" id="marginRight" value="10"></label><br>
 
-  <button onclick="generatePDF()">📄 Download Text PDF</button>
+      <button id="pdfBtn" onclick="generatePDF()">📄 Download Text PDF</button>
 
-  <p id="status"></p>
+      <p id="status"></p>
+  </div>
+  <div id="loadingOverlay">
+  <div class="spinner"></div>
+  <p>Scanning pages, please wait...</p>
+</div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
