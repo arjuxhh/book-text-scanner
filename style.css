@@ -1,40 +1,144 @@
+/* Global Styles */
 body {
-  font-family: Arial, sans-serif;
-  padding: 15px;
-  background: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 700px;
+    width: 90%;
+    background: #ffffff;
+    margin: 40px 0;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
+    font-size: 2em;
+    color: #343a40;
+    margin-bottom: 25px;
 }
 
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  font-size: 16px;
+h2 {
+    font-size: 1.2em;
+    color: #495057;
+    margin: 20px 0 10px;
+}
+
+/* Inputs & Buttons */
+input[type="file"] {
+    display: none; /* hide default file input */
+}
+
+.custom-file-upload {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px dashed #007bff;
+    color: #007bff;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.custom-file-upload:hover {
+    background: #e7f1ff;
 }
 
 textarea {
-  width: 100%;
-  height: 300px;
-  padding: 10px;
-  font-size: 14px;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    resize: vertical;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    transition: border 0.3s;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 button {
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: 0.3s;
 }
 
-button:hover {
-  background: #0056b3;
-  cursor: pointer;
+button#scanBtn {
+    background: linear-gradient(90deg, #007bff, #0056b3);
 }
 
+button#scanBtn:hover {
+    background: linear-gradient(90deg, #0056b3, #003f7f);
+}
+
+button#pdfBtn {
+    background: linear-gradient(90deg, #28a745, #1e7e34);
+}
+
+button#pdfBtn:hover {
+    background: linear-gradient(90deg, #1e7e34, #145c26);
+}
+
+/* Status Text */
 #status {
-  margin-top: 10px;
-  font-weight: bold;
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #495057;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}
+/* Loading overlay */
+#loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  display: none; /* hide initially */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #007bff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
